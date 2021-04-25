@@ -2,6 +2,7 @@ import { parseISO } from "date-fns";
 import format from "date-fns/format";
 import { ptBR } from "date-fns/locale";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import {  usePlayer } from "../../contexts/PlayerContext";
@@ -28,6 +29,9 @@ export default function Episode({ episode }: EpisodeProps) {
   const {play} = usePlayer()
   return (
     <div className={styles.episode}>
+       <Head>
+        <title>Podcast  | {episode.title}</title>
+      </Head>
       <div className={styles.thumbnailContainer}>
         <Link href="/">
           <button type="button">
